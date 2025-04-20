@@ -1,0 +1,19 @@
+`include "constants.vams"  // Include standard constants library
+`include "discipline.h"    // Include discipline definitions for electrical signals
+
+module diode(p, n);    // Define the module for the diode with inputs/outputs p and n
+    inout p, n;         // Declare p and n as inout ports (both inputs and outputs)
+    electrical p, n;    // Declare the electrical connections for p and n
+
+    // Parameters for the diode model
+    parameter real Is = 1e-14 from (0:inf);  // Saturation current (in Amperes), default value: 1e-14 A
+    parameter real N  = 1.0    from (0.1:10); // Ideality factor, default value: 1.0 (range from 0.1 to 10)
+    parameter real Vt = 0.0259;              // Thermal voltage at room temperature (in Volts), default value: 0.0259 V
+
+    analog begin
+        // Diode current equation based on Shockley diode equation:
+        // I = Is * (exp(V / (N * Vt)) - 1)
+        // V(p, n) is the voltage across the diode (V(p) - V(n)), and the equation computes the current I(p, n)
+        I(p, n) <+ Is * (exp(V(p, n) / (N * Vt)) - 1);  // Calculate diode current based on the voltage across it
+    end
+endmodule
