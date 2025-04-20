@@ -5,6 +5,7 @@ This guide walks you through the steps to simulate a Verilog-A diode model in Ca
 
 The diode model is implemented using Verilog-A, which is a hardware description language used for analog and mixed-signal circuit simulation. The model represents the diode's current-voltage relationship based on the Shockley diode equation.
 
+
 The Verilog-A code defines the following parameters:
 
     Is: Saturation current (A)
@@ -46,6 +47,8 @@ diode.va	Verilog-A code for the diode model
 
     Wire the diode to the other components in your circuit (e.g., voltage sources, resistors).
 
+![diode](https://github.com/user-attachments/assets/86e9e551-74f9-4994-aeed-f841c0c34b73)
+
 3. Set Up Simulation Environment
 
     Open ADE: In the Cadence Virtuoso environment, open Analog Design Environment (ADE).
@@ -69,6 +72,10 @@ diode.va	Verilog-A code for the diode model
     You can plot the current-voltage (I-V) characteristics of the diode by observing the voltage across and current through the diode.
 
     Use the Waveform Viewer to analyze the simulated data and compare the diode’s behavior to expected theoretical results.
+
+![diode](https://github.com/user-attachments/assets/b55ef6c5-4b5a-455a-a2a6-8fa7d6ec159c)
+
+
 
 💡 Notes
 
